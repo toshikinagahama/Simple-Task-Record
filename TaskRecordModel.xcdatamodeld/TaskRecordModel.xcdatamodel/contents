@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21C5021h" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="MyTask" representedClassName="MyTask" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="task_records" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MyTaskRecord" inverseName="task" inverseEntity="MyTaskRecord"/>
+    </entity>
+    <entity name="MyTaskRecord" representedClassName="MyTaskRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="elapsedTime" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="endTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="record_id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="task" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MyTask" inverseName="task_records" inverseEntity="MyTask"/>
+    </entity>
+    <elements>
+        <element name="MyTask" positionX="-244.7805786132812" positionY="-16.91647338867188" width="128" height="59"/>
+        <element name="MyTaskRecord" positionX="-54" positionY="9" width="128" height="104"/>
+    </elements>
+</model>
