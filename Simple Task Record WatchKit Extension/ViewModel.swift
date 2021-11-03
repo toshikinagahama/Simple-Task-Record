@@ -22,17 +22,17 @@ final class ViewModel: ObservableObject {
     private var timer: AnyCancellable!
     
     // タイマーの開始
-    func start(_ interval: Double = 1.0){
+    func start(_taskName: String){
         print("start Timer")
-        
+        self.activeTaskName = _taskName
         // TimerPublisherが存在しているときは念の為処理をキャンセル
         if let _timer = timer{
             _timer.cancel()
         }
-        
+        self.state = 1
         self.startTime = Date()
         
-        timer = Timer.publish(every: interval, on: .main, in: .common)
+        timer = Timer.publish(every: 1.0, on: .main, in: .common)
             .autoconnect()
             .sink(receiveValue: ({_ in
                 self.elapsedTime = Int(Date().timeIntervalSince(self.startTime))
@@ -43,9 +43,30 @@ final class ViewModel: ObservableObject {
     }
     // タイマーの停止
     func stop(){
+        self.state = 0
+        self.activeTaskName = ""
+        self.endTime = Date()
+        self.totalElapsedTime = self.totalElapsedTime_last + self.elapsedTime
+        self.totalElapsedTime_last = 0
         print("stop Timer")
         timer?.cancel()
         timer = nil
     }
     
+    // タイマーの一時停止
+    func pause(){
+        self.state = 2
+        self.totalElapsedTime_last += self.elapsedTime
+        self.elapsedTime = 0
+        print("pause Timer")
+        timer?.cancel()
+        timer = nil
+    }
+    
+    // タイマーの再開
+    func resume(){
+        print("resume Timer")
+        start(_taskName: self.activeTaskName)
+    }
+
 }
