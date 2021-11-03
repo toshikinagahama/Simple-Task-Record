@@ -23,14 +23,14 @@ struct ContentView: View {
     var body: some View {
         VStack{
             // CoreDataの中身を表示している，
-            List {
+            ScrollView {
                 ForEach(tasks, id: \.self) { task in
                     //                    NavigationLink(destination: TaskRecordView(taskName: task.name ?? "")) {
                     NavigationLink(destination: TaskRecordView(taskName: task.name ?? "").environmentObject(vm).environment(\.managedObjectContext, self.managedObjectContext)) {
                         HStack{
                             Text(task.name ?? "")
                                 .padding()
-                                .padding(.vertical, 10)
+                                .padding(.vertical, 5)
                             // 円形の描画
                             if vm.activeTaskName == task.name{
                                 Circle()
@@ -54,27 +54,29 @@ struct ContentView: View {
                         .tint(.red)
                     }
                 }
-            }
-            HStack(spacing: 25){
+                Spacer().frame(height: 30)
                 NavigationLink(
                     destination: AddNewTaskView()
                         .environment(\.managedObjectContext, self.managedObjectContext))
                 {
-                    VStack(spacing: 8){
-                        Image(systemName: "plus")
-                            .frame(width: 20, height: 20, alignment: .center)
-                        
-                    }
+                    Spacer()
+                    Image(systemName: "plus")
+                        .frame(width: 20, height: 20, alignment: .center)
+                    Spacer()
                 }
+                .background(.red)
+                .cornerRadius(5)
+
                 NavigationLink(
                     destination: SettingView()
                         .environment(\.managedObjectContext, self.managedObjectContext))
                 {
-                    VStack(spacing: 8){
-                        Image(systemName: "gear").frame(width: 20, height: 20, alignment: .center)
-                        
-                    }
+                    Spacer()
+                    Image(systemName: "gear").frame(width: 20, height: 20, alignment: .center)
+                    Spacer()
                 }
+                .background(.gray)
+                .cornerRadius(5)
             }
         }
         .alert(isPresented: $showingDeleteAlert) {
