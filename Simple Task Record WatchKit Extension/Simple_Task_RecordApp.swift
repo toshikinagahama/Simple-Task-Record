@@ -11,6 +11,7 @@ import SwiftUI
 struct Simple_Task_RecordApp: App {
     @StateObject private var vm = ViewModel()
     let persistenceController = PersistenceController.shared
+    @Environment(\.scenePhase) var scenePhase
     
     @SceneBuilder var body: some Scene {
         WindowGroup {
@@ -22,7 +23,7 @@ struct Simple_Task_RecordApp: App {
         }
         .onChange(of: scenePhase){
             _ in
-            persistenceController.save()
+                persistenceController.save()
         }
         
         WKNotificationScene(controller: NotificationController.self, category: "myCategory")

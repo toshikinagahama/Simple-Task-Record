@@ -27,6 +27,7 @@
 		BC6D7202272DA4F400E649AC /* TaskRecordModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC3C2FA02729A12300E58F9F /* TaskRecordModel.xcdatamodeld */; };
 		BC936A2A272ED131006D834F /* TaskRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC936A29272ED131006D834F /* TaskRecordView.swift */; };
 		BC936A2C272ED207006D834F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC936A2B272ED207006D834F /* ViewModel.swift */; };
+		BC989F172732271D00D06B11 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC989F162732271D00D06B11 /* SettingView.swift */; };
 		BCC4E966272EBD3900966BA7 /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4E965272EBD3900966BA7 /* AddNewTaskView.swift */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,7 @@
 		BC3C2FA2272AF9C900E58F9F /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		BC936A29272ED131006D834F /* TaskRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRecordView.swift; sourceTree = "<group>"; };
 		BC936A2B272ED207006D834F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		BC989F162732271D00D06B11 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BCC4E965272EBD3900966BA7 /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +241,7 @@
 				BC14ABBA27298C9600F510AB /* ContentView.swift */,
 				BCC4E965272EBD3900966BA7 /* AddNewTaskView.swift */,
 				BC936A29272ED131006D834F /* TaskRecordView.swift */,
+				BC989F162732271D00D06B11 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				BC3C2FA3272AF9C900E58F9F /* PersistenceController.swift in Sources */,
 				BC14ABB927298C9600F510AB /* Simple_Task_RecordApp.swift in Sources */,
 				BC14ABBF27298C9600F510AB /* NotificationView.swift in Sources */,
+				BC989F172732271D00D06B11 /* SettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
