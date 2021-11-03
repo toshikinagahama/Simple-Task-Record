@@ -8,15 +8,16 @@
 import SwiftUI
 import CoreData
 
+
 struct ContentView: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @EnvironmentObject var vm: ViewModel
     @FetchRequest(
         entity: MyTask.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \MyTask.name, ascending: true)],
-        animation: .default)  private var tasks: FetchedResults<MyTask>
-    @State private var showingAlert = false
-    @State private var selectedTask = MyTask()
+        animation: .default)  private var tasks: FetchedResults<MyTask> //タスクの取得
+    @State private var showingDeleteAlert = false //タスク削除アラート表示フラグ
+    @State private var selectedTask = MyTask() //選択したタスク
     
     
     var body: some View {
@@ -46,7 +47,7 @@ struct ContentView: View {
                     }
                     .swipeActions{
                         Button(action: {
-                            self.showingAlert = true
+                            self.showingDeleteAlert = true
                             self.selectedTask = task
                             print("trash")
                         }){
@@ -67,7 +68,7 @@ struct ContentView: View {
                 )
             }
         }
-        .alert(isPresented: $showingAlert) {
+        .alert(isPresented: $showingDeleteAlert) {
             Alert(
                 title: Text("Delete Task really?"),
                 primaryButton: .default(

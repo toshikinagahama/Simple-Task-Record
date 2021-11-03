@@ -30,8 +30,8 @@ struct TaskRecordView: View {
             }
             HStack(){
                 Button(action: {
-                        vm.activeTaskName = taskName
-                        vm.start()
+                    vm.activeTaskName = taskName
+                    vm.start()
                 }){
                     Text("開始")
                         .padding()
@@ -54,7 +54,7 @@ struct TaskRecordView: View {
                         print(error)
                         print("fail to save record")
                     }
-
+                    
                 }){
                     Text("終了")
                         .padding()
