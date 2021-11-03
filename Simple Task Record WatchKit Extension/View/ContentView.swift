@@ -21,11 +21,9 @@ struct ContentView: View {
     
     
     var body: some View {
-        //ScrollView{
         VStack{
             // CoreDataの中身を表示している，
             List {
-                //Text("\(vm.elapsedTime)")
                 ForEach(tasks, id: \.self) { task in
                     //                    NavigationLink(destination: TaskRecordView(taskName: task.name ?? "")) {
                     NavigationLink(destination: TaskRecordView(taskName: task.name ?? "").environmentObject(vm).environment(\.managedObjectContext, self.managedObjectContext)) {
@@ -54,21 +52,33 @@ struct ContentView: View {
                             Image(systemName: "trash")
                         }
                         .tint(.red)
+                    }
+                }
+            }
+            HStack(spacing: 25){
+                NavigationLink(
+                    destination: AddNewTaskView()
+                        .environment(\.managedObjectContext, self.managedObjectContext))
+                {
+                    VStack(spacing: 8){
+                        Image(systemName: "plus")
+                            .frame(width: 20, height: 20, alignment: .center)
                         
                     }
                 }
                 NavigationLink(
-                    destination: AddNewTaskView()
-                        .environment(\.managedObjectContext, self.managedObjectContext),
-                    label: {
-                        Spacer()
-                        Image(systemName: "plus")
-                        Spacer()
+                    destination: SettingView()
+                        .environment(\.managedObjectContext, self.managedObjectContext))
+                {
+                    VStack(spacing: 8){
+                        Image(systemName: "gear").frame(width: 20, height: 20, alignment: .center)
+                        
                     }
-                )
+                }
             }
         }
         .alert(isPresented: $showingDeleteAlert) {
+            //タスク削除アラートダイアログ
             Alert(
                 title: Text("Delete Task really?"),
                 primaryButton: .default(
@@ -91,7 +101,6 @@ struct ContentView: View {
             )
         }
         
-        //}
     }
 }
 
