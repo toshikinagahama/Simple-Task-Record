@@ -25,6 +25,9 @@
 		BC6D71FF272D9A7B00E649AC /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3C2FA2272AF9C900E58F9F /* PersistenceController.swift */; };
 		BC6D7201272D9A7E00E649AC /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3C2FA2272AF9C900E58F9F /* PersistenceController.swift */; };
 		BC6D7202272DA4F400E649AC /* TaskRecordModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BC3C2FA02729A12300E58F9F /* TaskRecordModel.xcdatamodeld */; };
+		BC936A2A272ED131006D834F /* TaskRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC936A29272ED131006D834F /* TaskRecordView.swift */; };
+		BC936A2C272ED207006D834F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC936A2B272ED207006D834F /* ViewModel.swift */; };
+		BCC4E966272EBD3900966BA7 /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4E965272EBD3900966BA7 /* AddNewTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +109,9 @@
 		BC3C2F9E2729A01C00E58F9F /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		BC3C2FA12729A12300E58F9F /* TaskRecordModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskRecordModel.xcdatamodel; sourceTree = "<group>"; };
 		BC3C2FA2272AF9C900E58F9F /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		BC936A29272ED131006D834F /* TaskRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRecordView.swift; sourceTree = "<group>"; };
+		BC936A2B272ED207006D834F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		BCC4E965272EBD3900966BA7 /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +143,6 @@
 		BC14AB9D27298C9400F510AB = {
 			isa = PBXGroup;
 			children = (
-				BC3C2FA02729A12300E58F9F /* TaskRecordModel.xcdatamodeld */,
 				BC14ABAC27298C9400F510AB /* Simple Task Record WatchKit App */,
 				BC14ABB727298C9600F510AB /* Simple Task Record WatchKit Extension */,
 				BC14ABD027298C9800F510AB /* Simple Task RecordTests */,
@@ -170,9 +175,10 @@
 		BC14ABB727298C9600F510AB /* Simple Task Record WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BCC4E964272EBB1500966BA7 /* View */,
+				BCC4E963272EBAFE00966BA7 /* Model */,
 				BC3C2F9C2729A01300E58F9F /* Simple Task Record WatchKit Extension.entitlements */,
 				BC14ABB827298C9600F510AB /* Simple_Task_RecordApp.swift */,
-				BC14ABBA27298C9600F510AB /* ContentView.swift */,
 				BC14ABBC27298C9600F510AB /* NotificationController.swift */,
 				BC14ABBE27298C9600F510AB /* NotificationView.swift */,
 				BC14ABC027298C9600F510AB /* ComplicationController.swift */,
@@ -181,6 +187,7 @@
 				BC14ABC827298C9800F510AB /* PushNotificationPayload.apns */,
 				BC14ABC427298C9800F510AB /* Preview Content */,
 				BC3C2FA2272AF9C900E58F9F /* PersistenceController.swift */,
+				BC936A2B272ED207006D834F /* ViewModel.swift */,
 			);
 			path = "Simple Task Record WatchKit Extension";
 			sourceTree = "<group>";
@@ -216,6 +223,24 @@
 				BC3C2F9E2729A01C00E58F9F /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BCC4E963272EBAFE00966BA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC3C2FA02729A12300E58F9F /* TaskRecordModel.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BCC4E964272EBB1500966BA7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC14ABBA27298C9600F510AB /* ContentView.swift */,
+				BCC4E965272EBD3900966BA7 /* AddNewTaskView.swift */,
+				BC936A29272ED131006D834F /* TaskRecordView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +430,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC936A2C272ED207006D834F /* ViewModel.swift in Sources */,
+				BCC4E966272EBD3900966BA7 /* AddNewTaskView.swift in Sources */,
+				BC936A2A272ED131006D834F /* TaskRecordView.swift in Sources */,
 				BC14ABBD27298C9600F510AB /* NotificationController.swift in Sources */,
 				BC14ABBB27298C9600F510AB /* ContentView.swift in Sources */,
 				BC14ABC127298C9600F510AB /* ComplicationController.swift in Sources */,
@@ -587,7 +615,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Simple Task Record WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Simple Task Record WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = Simple_Task_Record_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -620,7 +648,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Simple Task Record WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Simple Task Record WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = Simple_Task_Record_WatchKit_Extension.ComplicationController;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				LD_RUNPATH_SEARCH_PATHS = (

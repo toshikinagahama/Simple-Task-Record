@@ -9,14 +9,16 @@ import SwiftUI
 
 @main
 struct Simple_Task_RecordApp: App {
-    
+    @StateObject private var vm = ViewModel()
     let persistenceController = PersistenceController.shared
     @Environment(\.scenePhase) var scenePhase
     
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+                ContentView()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                    .environmentObject(vm)
             }
         }
         .onChange(of: scenePhase){

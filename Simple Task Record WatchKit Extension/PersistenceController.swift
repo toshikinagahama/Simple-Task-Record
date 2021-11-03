@@ -10,9 +10,11 @@ import CoreData
 struct PersistenceController{
     static let shared = PersistenceController()
 
+//    let container: NSPersistentContainer
     let container: NSPersistentCloudKitContainer
 
     init(inMemory: Bool = false){
+//        container = NSPersistentContainer(name: "TaskRecordModel")
         container = NSPersistentCloudKitContainer(name: "TaskRecordModel")
         if inMemory{
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
@@ -22,6 +24,8 @@ struct PersistenceController{
                 fatalError("Error: \(error.localizedDescription)")
             }
         }
+        container.viewContext.mergePolicy = NSMergePolicy(merge: .mergeByPropertyObjectTrumpMergePolicyType)
+        container.viewContext.automaticallyMergesChangesFromParent = true
     }
 
     func save(completion: @escaping(Error?) -> () = { _ in}){
