@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21C5021h" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="MySetting" representedClassName="MySetting" syncable="YES" codeGenerationType="class">
+        <attribute name="notification_time" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="MyTask" representedClassName="MyTask" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
     </entity>
@@ -13,5 +16,6 @@
     <elements>
         <element name="MyTask" positionX="-244.7805786132812" positionY="-16.91647338867188" width="128" height="44"/>
         <element name="MyTaskRecord" positionX="-54" positionY="9" width="128" height="104"/>
+        <element name="MySetting" positionX="-153" positionY="36" width="128" height="44"/>
     </elements>
 </model>
