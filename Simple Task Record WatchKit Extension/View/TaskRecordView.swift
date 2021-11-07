@@ -14,7 +14,7 @@ struct TaskRecordView: View {
     @State var showingSaveResultAlert = false //保存時アラート表示フラグ
     @State var alertTitle = "" //保存時アラートタイトル
     @State var alertMessage = "" //保存時アラートメッセージ
-    let taskName: String //アクティブタスク
+    public let task: MyTask //タスク
     
     var body: some View {
         VStack(){
@@ -55,7 +55,7 @@ struct TaskRecordView: View {
                     vm.pause()
                 }){
                     Button(action: {
-                        vm.start(_taskName: taskName)
+                        vm.start(_taskName: task.name ?? "")
                     }){
                         Text("開始")
                             .padding()
@@ -68,9 +68,10 @@ struct TaskRecordView: View {
                     record.endTime = vm.endTime
                     record.startTime = vm.startTime
                     record.elapsedTime = Int16(vm.totalElapsedTime)
-                    record.taskName = taskName
+                    record.mytask = task
                     do {
                         try managedObjectContext.save()
+                        print(record)
                         print("success to save record")
                         self.alertTitle = "success to save"
                         self.alertMessage = String(format: "Time is %02d:%02d", (vm.totalElapsedTime) / 60, (vm.totalElapsedTime) % 60)
@@ -95,7 +96,7 @@ struct TaskRecordView: View {
                message: Text(alertMessage)
            )
        }
-        .navigationBarTitle(Text(taskName))
+      .navigationBarTitle(Text(task.name ?? ""))
         
     }
 }
