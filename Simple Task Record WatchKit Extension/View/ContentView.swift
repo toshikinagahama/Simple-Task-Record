@@ -56,6 +56,17 @@ struct ContentView: View {
                 }
                 Spacer().frame(height: 30)
                 NavigationLink(
+                    destination: ExportDataView()
+                        .environment(\.managedObjectContext, self.managedObjectContext))
+                {
+                    Spacer()
+                    Image(systemName: "square.and.arrow.up")
+                        .frame(width: 20, height: 20, alignment: .center)
+                    Spacer()
+                }
+                .background(.blue)
+                .cornerRadius(5)
+                NavigationLink(
                     destination: AddNewTaskView()
                         .environment(\.managedObjectContext, self.managedObjectContext))
                 {

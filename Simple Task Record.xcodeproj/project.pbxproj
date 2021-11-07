@@ -29,6 +29,7 @@
 		BC936A2C272ED207006D834F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC936A2B272ED207006D834F /* ViewModel.swift */; };
 		BC989F172732271D00D06B11 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC989F162732271D00D06B11 /* SettingView.swift */; };
 		BCB117072737A81000948000 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB117062737A81000948000 /* TimePickerView.swift */; };
+		BCB117092738066B00948000 /* ExportDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB117082738066B00948000 /* ExportDataView.swift */; };
 		BCC4E966272EBD3900966BA7 /* AddNewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4E965272EBD3900966BA7 /* AddNewTaskView.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		BC936A2B272ED207006D834F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		BC989F162732271D00D06B11 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BCB117062737A81000948000 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		BCB117082738066B00948000 /* ExportDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportDataView.swift; sourceTree = "<group>"; };
 		BCC4E965272EBD3900966BA7 /* AddNewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -245,6 +247,7 @@
 				BC936A29272ED131006D834F /* TaskRecordView.swift */,
 				BC989F162732271D00D06B11 /* SettingView.swift */,
 				BCB117062737A81000948000 /* TimePickerView.swift */,
+				BCB117082738066B00948000 /* ExportDataView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				BCC4E966272EBD3900966BA7 /* AddNewTaskView.swift in Sources */,
 				BC936A2A272ED131006D834F /* TaskRecordView.swift in Sources */,
 				BC14ABBD27298C9600F510AB /* NotificationController.swift in Sources */,
+				BCB117092738066B00948000 /* ExportDataView.swift in Sources */,
 				BC14ABBB27298C9600F510AB /* ContentView.swift in Sources */,
 				BC14ABC127298C9600F510AB /* ComplicationController.swift in Sources */,
 				BC6D7202272DA4F400E649AC /* TaskRecordModel.xcdatamodeld in Sources */,
