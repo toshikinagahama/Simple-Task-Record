@@ -26,7 +26,7 @@ struct ContentView: View {
             ScrollView {
                 ForEach(tasks, id: \.self) { task in
                     //                    NavigationLink(destination: TaskRecordView(taskName: task.name ?? "")) {
-                    NavigationLink(destination: TaskRecordView(taskName: task.name ?? "").environmentObject(vm).environment(\.managedObjectContext, self.managedObjectContext)) {
+                    NavigationLink(destination: TaskRecordView(task: task).environmentObject(vm).environment(\.managedObjectContext, self.managedObjectContext)) {
                         HStack{
                             Text(task.name ?? "")
                                 .padding()
