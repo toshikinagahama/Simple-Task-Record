@@ -23,7 +23,7 @@ struct ContentView: View {
     var body: some View {
         VStack{
             // CoreDataの中身を表示している，
-            ScrollView {
+            List{
                 ForEach(tasks, id: \.self) { task in
                     //                    NavigationLink(destination: TaskRecordView(taskName: task.name ?? "")) {
                     NavigationLink(destination: TaskRecordView(task: task).environmentObject(vm).environment(\.managedObjectContext, self.managedObjectContext)) {
@@ -54,7 +54,7 @@ struct ContentView: View {
                         .tint(.red)
                     }
                 }
-                Spacer().frame(height: 30)
+                Spacer().frame(height: 30).listRowBackground(Color.black.opacity(0.0))
                 NavigationLink(
                     destination: AddNewTaskView()
                         .environment(\.managedObjectContext, self.managedObjectContext))
@@ -64,8 +64,7 @@ struct ContentView: View {
                         .frame(width: 20, height: 20, alignment: .center)
                     Spacer()
                 }
-                .background(.red)
-                .cornerRadius(5)
+                .listRowBackground(Color.red)
 
                 NavigationLink(
                     destination: SettingView()
@@ -75,8 +74,7 @@ struct ContentView: View {
                     Image(systemName: "gear").frame(width: 20, height: 20, alignment: .center)
                     Spacer()
                 }
-                .background(.gray)
-                .cornerRadius(5)
+                .listRowBackground(Color.gray)
             }
         }
         .alert(isPresented: $showingDeleteAlert) {
