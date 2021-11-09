@@ -64,7 +64,7 @@ struct ContentView: View {
                         .frame(width: 20, height: 20, alignment: .center)
                     Spacer()
                 }
-                .background(.blue)
+                .listRowBackground(Color.blue)
                 .cornerRadius(5)
                 NavigationLink(
                     destination: AddNewTaskView()
