@@ -105,6 +105,7 @@ struct TimePickerView: View {
                         vm.stop(_endTime: time ?? Date())
                         //データ保存
                         let record = MyTaskRecord(context: managedObjectContext)
+                        record.record_id = UUID()
                         record.endTime = vm.endTime
                         record.startTime = vm.startTime
                         record.elapsedTime = Int16(vm.totalElapsedTime)
