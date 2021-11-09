@@ -25,49 +25,58 @@ struct TimePickerView: View {
     @State var memo = "" //メモ
     @State var navTitle = ""
     @State var task: MyTask
+    @State var isFirstAppear = true //最初の描画かどうか
     
     var body: some View {
         ScrollView{
-            HStack{
+            HStack(alignment: .bottom){
                 Picker(selection: $hour, label: Text("")) {
                     ForEach((0...23), id: \.self) { num in
-                        Text(String(format: "%02d", num)).tag(Int16(num)).font(.title2)
+                        Text(String(format: "%02d", num)).tag(Int16(num)).font(.caption)
                     }
                 }
                 Text(":")
+                    .padding()
+                    .font(.title)
                 Picker(selection: $minute, label: Text("")) {
                     ForEach((0...59), id: \.self) { num in
-                        Text(String(format: "%02d", num)).tag(Int16(num)).font(.title2)
+                        Text(String(format: "%02d", num)).tag(Int16(num)).font(.caption)
                     }
                 }
                 
-            }.frame(height: 70)
+            }.frame(height: 50)
             Group{
                 if vm.state == 1{
-                    Spacer()
-                        .frame(height: 60)
-                    Text("your zone level")
-                    Picker(selection: $zoneLevel, label: Text("")) {
-                        ForEach((0...11), id: \.self) { num in
-                            Text(String(format: "%d", num)).tag(Int16(num)).font(.title2)
+                    HStack(alignment: .bottom){
+                        Picker(selection: $zoneLevel, label: Text("")) {
+                            ForEach((0...11), id: \.self) { num in
+                                Text(String(format: "%d", num)).tag(Int16(num)).font(.caption)
+                            }
                         }
-                    }
-                    .frame(height: 70)
-                    Spacer()
-                        .frame(height: 60)
-                    Text("difficulty level for you")
-                    Picker(selection: $difficultyLevel, label: Text("")) {
-                        ForEach((0...11), id: \.self) { num in
-                            Text(String(format: "%d", num)).tag(Int16(num)).font(.title2)
-                        }
-                    }
-                    .frame(height: 70)
-                    Spacer()
-                        .frame(height: 60)
-                    TextField("memo", text: $memo)
+                        .frame(height: 50)
+                        Spacer()
+                            .frame(width: 30)
+                        Text("zone\nlevel")
                         .padding()
+                    }
+                    HStack(alignment: .bottom){
+                        Picker(selection: $difficultyLevel, label: Text("")) {
+                            ForEach((0...11), id: \.self) { num in
+                                Text(String(format: "%d", num)).tag(Int16(num)).font(.caption)
+                            }
+                        }
+                        Spacer()
+                            .frame(width: 30)
+                        .frame(height: 50)
+                        Text("task\nlevel")
+                        .padding()
+                    }
+                    HStack{
+                        TextField("memo", text: $memo)
+                            .padding()
+                        }
                     Spacer()
-                        .frame(height: 40)
+                        .frame(height: 20)
                 }
             }
             Button(action: {
@@ -132,6 +141,11 @@ struct TimePickerView: View {
         }
         .navigationBarTitle(Text(navTitle))
         .onAppear{
+            if self.isFirstAppear == false{
+                //最初の描画のときだけ実行
+                return
+            }
+            self.isFirstAppear = false
             //現在時刻の設定
             let date = Date()
             print(date)
